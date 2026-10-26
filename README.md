@@ -27,8 +27,8 @@ its name, where you can disconnect it at any time.
 
 | Assistant | Fastest way | Full guide |
 | --- | --- | --- |
-| **ChatGPT** | Settings → Apps → Create app, URL `https://commercializer.ai/mcp`, OAuth | [ChatGPT](docs/chatgpt.md) |
-| **Claude** (claude.ai, desktop, mobile) | Settings → Connectors → Add custom connector | [Claude](docs/claude-ai.md) |
+| **ChatGPT** | Plugins → Add → Add custom MCP server, URL `https://commercializer.ai/mcp`, OAuth | [ChatGPT](docs/chatgpt.md) |
+| **Claude** (claude.ai, desktop, mobile) | Customize → Connectors → Add → Add custom connector | [Claude](docs/claude-ai.md) |
 | **Claude Code** | `/plugin marketplace add Commercializer-ai/commercializer-mcp` | [Claude Code](docs/claude-code.md) |
 | **GitHub Copilot** (VS Code, Copilot CLI, JetBrains, Visual Studio) | [Add to VS Code](https://vscode.dev/redirect/mcp/install?name=commercializer&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fcommercializer.ai%2Fmcp%22%7D) or `copilot plugin marketplace add Commercializer-ai/commercializer-mcp` | [GitHub Copilot](docs/github-copilot.md) |
 | **Copilot coding agent** (on github.com) | Repository settings → Copilot → MCP servers, with an API key | [Copilot coding agent](docs/copilot-coding-agent.md) |
