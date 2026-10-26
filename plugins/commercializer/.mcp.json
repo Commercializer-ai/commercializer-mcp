@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "commercializer": {
+      "type": "http",
+      "url": "https://commercializer.ai/mcp"
+    }
+  }
+}
