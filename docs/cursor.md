@@ -39,6 +39,17 @@ to get the server and the Commercializer skills.
 In **Cursor Settings → Tools & MCP**, **commercializer** shows **Needs login**. Press it: commercializer.ai opens, sign
 in, choose the workspace and press **Allow Cursor**. The dot turns green and the tools are listed.
 
+### In the Cursor CLI
+
+`cursor-agent` reads the same `~/.cursor/mcp.json`. With the server added:
+
+```sh
+cursor-agent mcp login commercializer
+```
+
+opens commercializer.ai; sign in, choose the workspace and press **Allow Cursor**. `cursor-agent mcp list` then shows
+`commercializer: ready`, and `cursor-agent mcp list-tools commercializer` lists the tools.
+
 ## Check it works
 
 In the agent chat, ask:
