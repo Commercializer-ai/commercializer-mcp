@@ -9,7 +9,7 @@ watches, and the agent — through one MCP server, with a skill that teaches Cla
 In Claude Code:
 
 ```
-/plugin marketplace add cvxn-founder/commercializer-claude
+/plugin marketplace add Commercializer-ai/commercializer-claude
 /plugin install commercializer@commercializer
 /mcp
 ```

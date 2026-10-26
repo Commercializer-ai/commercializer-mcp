@@ -1,9 +1,9 @@
 {
   "name": "commercializer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Your commercializer.ai workspace in Claude Code: the governed registers, what was kept about your company, workflows, watches and the agent.",
   "author": { "name": "Commercializer", "url": "https://commercializer.ai" },
   "homepage": "https://commercializer.ai/product/assistant",
-  "repository": "https://github.com/cvxn-founder/commercializer-claude",
+  "repository": "https://github.com/Commercializer-ai/commercializer-claude",
   "keywords": ["medtech", "regulatory", "fda", "commercial strategy", "mcp"]
 }
