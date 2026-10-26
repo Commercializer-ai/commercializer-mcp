@@ -1,0 +1,50 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "commercializer",
+  "version": "1.1.0",
+  "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
+  "author": {
+    "name": "Commercializer",
+    "email": "hello@commercializer.ai",
+    "url": "https://commercializer.ai"
+  },
+  "homepage": "https://commercializer.ai/product/assistant",
+  "repository": "https://github.com/Commercializer-ai/commercializer",
+  "keywords": [
+    "medtech",
+    "medical devices",
+    "regulatory",
+    "fda",
+    "market access",
+    "commercial strategy",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup/SKILL.md",
+      "interface": {
+        "displayName": "Commercializer",
+        "shortDescription": "Medtech commercial strategy",
+        "longDescription": "Commercializer is the commercial strategy workspace for medical device and life-science companies. Connected, your assistant works on your company the way the Commercializer app does: it reads the governed registers (FDA clearances and approvals, EU and other registrations, recalls and adverse event reports, registered trials, patents, payments to clinicians, public tenders and company filings), cites every record it uses, keeps the findings worth remembering on your company's profile, and starts workflows that deliver a pathway decision, a submission checklist, a market entry plan, a competitor footprint or a company brief, asking you at each decision. It is for founders, regulatory, market access and commercial teams, and the consultants who work with them. It reads what the registers hold and says where they hold nothing; it gives no legal or regulatory advice.",
+        "developerName": "Commercializer",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://commercializer.ai",
+        "privacyPolicyURL": "https://commercializer.ai/privacy",
+        "termsOfServiceURL": "https://commercializer.ai/terms",
+        "defaultPrompt": [
+          "What clearances and recalls does our closest competitor hold, register by register?",
+          "Which US pathway fits our device, and which predicates would we lean on?",
+          "Run a market entry workflow for Germany and the UK on our lead product."
+        ],
+        "brandColor": "#FF5B14",
+        "brandColorDark": "#FF6F33",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/icon.png"
+      }
+    }
+  }
+}

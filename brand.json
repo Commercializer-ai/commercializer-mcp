@@ -1,0 +1,39 @@
+{
+  "name": "commercializer",
+  "displayName": "Commercializer",
+  "version": "1.1.0",
+  "shortDescription": "Medtech commercial strategy",
+  "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
+  "longDescription": "Commercializer is the commercial strategy workspace for medical device and life-science companies. Connected, your assistant works on your company the way the Commercializer app does: it reads the governed registers (FDA clearances and approvals, EU and other registrations, recalls and adverse event reports, registered trials, patents, payments to clinicians, public tenders and company filings), cites every record it uses, keeps the findings worth remembering on your company's profile, and starts workflows that deliver a pathway decision, a submission checklist, a market entry plan, a competitor footprint or a company brief, asking you at each decision. It is for founders, regulatory, market access and commercial teams, and the consultants who work with them. It reads what the registers hold and says where they hold nothing; it gives no legal or regulatory advice.",
+  "developerName": "Commercializer",
+  "email": "hello@commercializer.ai",
+  "website": "https://commercializer.ai",
+  "guide": "https://commercializer.ai/product/assistant",
+  "support": "https://commercializer.ai/contact",
+  "privacy": "https://commercializer.ai/privacy",
+  "terms": "https://commercializer.ai/terms",
+  "mcp": "https://commercializer.ai/mcp",
+  "repository": "https://github.com/Commercializer-ai/commercializer",
+  "registryName": "ai.commercializer/commercializer",
+  "brandColor": "#FF5B14",
+  "brandColorDark": "#FF6F33",
+  "category": "Productivity",
+  "keywords": [
+    "medtech",
+    "medical devices",
+    "regulatory",
+    "fda",
+    "market access",
+    "commercial strategy",
+    "mcp"
+  ],
+  "capabilities": [
+    "Read",
+    "Write"
+  ],
+  "prompts": [
+    "What clearances and recalls does our closest competitor hold, register by register?",
+    "Which US pathway fits our device, and which predicates would we lean on?",
+    "Run a market entry workflow for Germany and the UK on our lead product."
+  ]
+}

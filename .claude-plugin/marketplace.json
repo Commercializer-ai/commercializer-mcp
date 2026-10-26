@@ -1,17 +1,37 @@
 {
   "name": "commercializer",
-  "owner": { "name": "Commercializer", "url": "https://commercializer.ai" },
-  "metadata": { "description": "Commercializer for Claude: commercial strategy for medical device and life-science companies, read from the governed registers.", "version": "1.0.2" },
+  "owner": {
+    "name": "Commercializer",
+    "email": "hello@commercializer.ai",
+    "url": "https://commercializer.ai"
+  },
+  "metadata": {
+    "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
+    "version": "1.1.0"
+  },
   "plugins": [
     {
       "name": "commercializer",
-      "source": "./plugins/commercializer",
-      "description": "Connects Claude Code to your commercializer.ai workspace: the research tools, what was kept about your company, workflows, watches and the agent, with /commercializer:ask, :run and :workspace.",
-      "version": "1.0.2",
-      "author": { "name": "Commercializer", "url": "https://commercializer.ai" },
+      "source": "./",
+      "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Commercializer",
+        "email": "hello@commercializer.ai",
+        "url": "https://commercializer.ai"
+      },
       "homepage": "https://commercializer.ai/product/assistant",
+      "repository": "https://github.com/Commercializer-ai/commercializer",
       "category": "productivity",
-      "keywords": ["medtech", "regulatory", "fda", "commercial strategy", "mcp"]
+      "keywords": [
+        "medtech",
+        "medical devices",
+        "regulatory",
+        "fda",
+        "market access",
+        "commercial strategy",
+        "mcp"
+      ]
     }
   ]
 }
