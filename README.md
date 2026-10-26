@@ -31,7 +31,7 @@ keep what is worth knowing next time.
 ## Without the plugin
 
 Any MCP client that speaks Streamable HTTP connects to `https://commercializer.ai/mcp` and signs in the same way. A
-script or a client with no browser uses an API key made on the Assistants page, sent as `Authorization: Bearer <key>`:
+script or a client with no browser uses an API key made on the MCP page, sent as `Authorization: Bearer <key>`:
 
 ```
 claude mcp add --transport http commercializer https://commercializer.ai/mcp --header "Authorization: Bearer <key>"

@@ -1,13 +1,13 @@
 {
   "name": "commercializer",
   "owner": { "name": "Commercializer", "url": "https://commercializer.ai" },
-  "metadata": { "description": "Commercializer for Claude: commercial strategy for medical device and life-science companies, read from the governed registers.", "version": "1.0.1" },
+  "metadata": { "description": "Commercializer for Claude: commercial strategy for medical device and life-science companies, read from the governed registers.", "version": "1.0.2" },
   "plugins": [
     {
       "name": "commercializer",
       "source": "./plugins/commercializer",
       "description": "Connects Claude Code to your commercializer.ai workspace: the research tools, what was kept about your company, workflows, watches and the agent, with /commercializer:ask, :run and :workspace.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": { "name": "Commercializer", "url": "https://commercializer.ai" },
       "homepage": "https://commercializer.ai/product/assistant",
       "category": "productivity",
