@@ -24,10 +24,12 @@ tokens and refreshes them.
 
 ```sh
 codex plugin marketplace add Commercializer-ai/commercializer
+codex plugin add commercializer@commercializer
+codex mcp login commercializer
 ```
 
-then in Codex open **/plugins**, choose the **Commercializer** marketplace and **Install** the plugin; sign in when it
-asks.
+(or, in the Codex app, open **Plugins**, choose the **Commercializer** marketplace and **Install**). The plugin brings
+the server and the Commercializer skills.
 
 ### Or by hand
 

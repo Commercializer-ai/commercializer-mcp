@@ -52,7 +52,8 @@ Open Copilot Chat, switch to **Agent**, open the **tools** picker and make sure 
 ## Copilot CLI
 
 ```sh
-copilot plugin install Commercializer-ai/commercializer
+copilot plugin marketplace add Commercializer-ai/commercializer
+copilot plugin install commercializer@commercializer
 ```
 
 installs the server and skills. Or just the server:
@@ -62,7 +63,8 @@ copilot mcp add --transport http commercializer https://commercializer.ai/mcp
 ```
 
 Then in `copilot`, run `/mcp` and sign in to **commercializer** when it asks. Plugins installed with the CLI also show in
-VS Code under **Agent Plugins**.
+VS Code under **Agent Plugins**. Update with `copilot plugin update commercializer`; remove with
+`copilot plugin uninstall commercializer`.
 
 ## JetBrains, Visual Studio, Xcode, Eclipse
 
@@ -114,8 +116,7 @@ See [API keys](api-keys.md).
 
 ## Disconnect
 
-Remove the server from `mcp.json` (or **MCP: List Servers → commercializer → Uninstall**), or `copilot plugin uninstall
-commercializer`. In Commercializer, **Disconnect** it on the **MCP** page.
+Remove the server from `mcp.json` (or **MCP: List Servers → commercializer → Uninstall**), or `copilot plugin uninstall commercializer`. In Commercializer, **Disconnect** it on the **MCP** page.
 
 ## Troubleshooting
 

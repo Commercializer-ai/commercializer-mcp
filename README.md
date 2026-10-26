@@ -30,7 +30,7 @@ its name, where you can disconnect it at any time.
 | **ChatGPT** | Settings → Apps → Create app, URL `https://commercializer.ai/mcp`, OAuth | [ChatGPT](docs/chatgpt.md) |
 | **Claude** (claude.ai, desktop, mobile) | Settings → Connectors → Add custom connector | [Claude](docs/claude-ai.md) |
 | **Claude Code** | `/plugin marketplace add Commercializer-ai/commercializer` | [Claude Code](docs/claude-code.md) |
-| **GitHub Copilot** (VS Code, Copilot CLI, JetBrains, Visual Studio) | [Add to VS Code](https://vscode.dev/redirect/mcp/install?name=commercializer&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fcommercializer.ai%2Fmcp%22%7D) or `copilot plugin install Commercializer-ai/commercializer` | [GitHub Copilot](docs/github-copilot.md) |
+| **GitHub Copilot** (VS Code, Copilot CLI, JetBrains, Visual Studio) | [Add to VS Code](https://vscode.dev/redirect/mcp/install?name=commercializer&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fcommercializer.ai%2Fmcp%22%7D) or `copilot plugin marketplace add Commercializer-ai/commercializer` | [GitHub Copilot](docs/github-copilot.md) |
 | **Copilot coding agent** (on github.com) | Repository settings → Copilot → MCP servers, with an API key | [Copilot coding agent](docs/copilot-coding-agent.md) |
 | **Microsoft Copilot Studio** (agents for Microsoft 365 Copilot and Teams) | Tools → Add a tool → Model Context Protocol, OAuth dynamic discovery | [Copilot Studio](docs/microsoft-copilot-studio.md) |
 | **Cursor** | [Add to Cursor](https://cursor.com/en/install-mcp?name=commercializer&config=eyJ1cmwiOiJodHRwczovL2NvbW1lcmNpYWxpemVyLmFpL21jcCJ9) | [Cursor](docs/cursor.md) |
@@ -60,9 +60,11 @@ ChatGPT, Codex, GitHub Copilot, VS Code and Cursor read, and carries a Claude Co
 ```
 Claude Code      /plugin marketplace add Commercializer-ai/commercializer
                  /plugin install commercializer@commercializer
-Copilot CLI      copilot plugin install Commercializer-ai/commercializer
+Copilot CLI      copilot plugin marketplace add Commercializer-ai/commercializer
+                 copilot plugin install commercializer@commercializer
 VS Code          Command Palette → Chat: Install Plugin From Source → https://github.com/Commercializer-ai/commercializer
 Codex            codex plugin marketplace add Commercializer-ai/commercializer
+                 codex plugin add commercializer@commercializer
 ```
 
 It is also listed in the [MCP Registry](https://registry.modelcontextprotocol.io) as `ai.commercializer/commercializer`.
