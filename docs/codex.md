@@ -23,7 +23,7 @@ tokens and refreshes them.
 ### Or the plugin (server and skills)
 
 ```sh
-codex plugin marketplace add Commercializer-ai/commercializer
+codex plugin marketplace add Commercializer-ai/commercializer-mcp
 codex plugin add commercializer@commercializer
 codex mcp login commercializer
 ```

@@ -13,14 +13,14 @@ you call by name. Or add just the server.
 In Claude Code:
 
 ```
-/plugin marketplace add Commercializer-ai/commercializer
+/plugin marketplace add Commercializer-ai/commercializer-mcp
 /plugin install commercializer@commercializer
 ```
 
 Or from your shell:
 
 ```sh
-claude plugin marketplace add Commercializer-ai/commercializer
+claude plugin marketplace add Commercializer-ai/commercializer-mcp
 claude plugin install commercializer@commercializer
 ```
 

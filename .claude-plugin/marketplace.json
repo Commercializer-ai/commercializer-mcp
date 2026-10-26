@@ -7,21 +7,21 @@
   },
   "metadata": {
     "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
-    "version": "1.1.0"
+    "version": "1.1.1"
   },
   "plugins": [
     {
       "name": "commercializer",
       "source": "./",
       "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "author": {
         "name": "Commercializer",
         "email": "hello@commercializer.ai",
         "url": "https://commercializer.ai"
       },
       "homepage": "https://commercializer.ai/product/assistant",
-      "repository": "https://github.com/Commercializer-ai/commercializer",
+      "repository": "https://github.com/Commercializer-ai/commercializer-mcp",
       "category": "productivity",
       "keywords": [
         "medtech",

@@ -19,7 +19,7 @@ opens VS Code and asks to install the server. Choose **Install**.
 ### Or the plugin (server and skills)
 
 Open the Command Palette, run **Chat: Install Plugin From Source** and enter
-`https://github.com/Commercializer-ai/commercializer`. This adds the server and the Commercializer skills (`ask`, `run`,
+`https://github.com/Commercializer-ai/commercializer-mcp`. This adds the server and the Commercializer skills (`ask`, `run`,
 `workspace`, `setup`).
 
 ### Or by hand
@@ -52,7 +52,7 @@ Open Copilot Chat, switch to **Agent**, open the **tools** picker and make sure 
 ## Copilot CLI
 
 ```sh
-copilot plugin marketplace add Commercializer-ai/commercializer
+copilot plugin marketplace add Commercializer-ai/commercializer-mcp
 copilot plugin install commercializer@commercializer
 ```
 

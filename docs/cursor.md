@@ -31,7 +31,7 @@ opens Cursor with the server filled in. Choose **Install**.
 
 ### Or the plugin
 
-Cursor reads Agent Plugins: add `https://github.com/Commercializer-ai/commercializer` from **Cursor Settings → Plugins**
+Cursor reads Agent Plugins: add `https://github.com/Commercializer-ai/commercializer-mcp` from **Cursor Settings → Plugins**
 to get the server and the Commercializer skills.
 
 ## Sign in

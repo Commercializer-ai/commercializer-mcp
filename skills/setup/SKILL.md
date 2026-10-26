@@ -16,4 +16,4 @@ Help the person connect Commercializer.
 
 A client that cannot open a browser (a script, a CI job, the GitHub Copilot coding agent) uses an API key instead: made
 on the MCP page of commercializer.ai, sent as `Authorization: Bearer <key>`. The full guide for each client is at
-https://github.com/Commercializer-ai/commercializer/tree/main/docs.
+https://github.com/Commercializer-ai/commercializer-mcp/tree/main/docs.

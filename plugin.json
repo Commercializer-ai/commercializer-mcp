@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "commercializer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
   "author": {
     "name": "Commercializer",
@@ -9,7 +9,7 @@
     "url": "https://commercializer.ai"
   },
   "homepage": "https://commercializer.ai/product/assistant",
-  "repository": "https://github.com/Commercializer-ai/commercializer",
+  "repository": "https://github.com/Commercializer-ai/commercializer-mcp",
   "keywords": [
     "medtech",
     "medical devices",
