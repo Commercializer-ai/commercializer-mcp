@@ -1,7 +1,7 @@
 # The tools
 
 Every tool runs as you, in the workspace you approved. **Reads** change nothing. **Writes** add something (a finding, a
-run, a watch, a question to the agent). **Removes** stop or drop something. Each tool tells your assistant which it is,
+tool answer, a run, a watch, a question to the agent). **Removes** stop or drop something. Each tool tells your assistant which it is,
 so the assistant can ask you first.
 
 ## Your workspace
@@ -38,6 +38,29 @@ Every answer starts with `[read dr_…]`, the id to cite and to keep a finding f
 | `recall_findings` | Read | The findings kept about a company that bear on a query; a finding the registers have revised since is marked stale. |
 | `keep_finding` | Write | Keeps one finding in one line, citing the reads that show it; shown on the profile with your assistant's name. |
 | `forget_finding` | Remove | Drops a kept finding that no longer holds, with the reason; the record of it stays. |
+
+## Tools
+
+One question answered in a minute or two, the same answer as the Tools page on commercializer.ai. Each answer starts with
+`[read dr_…]`, cites its sources and names the workflows that go deeper.
+
+| Tool | Kind | What it does |
+| --- | --- | --- |
+| `list_tools` | Read | Every tool, with what it answers, its inputs with the values your profile fills them with, and the workflows that go deeper; `category` narrows it to one kind. |
+| `run_tool` | Write | Runs one and waits up to 45 seconds for the answer. The same inputs answered today come back at no cost. Draws on your plan's monthly agent use. |
+| `get_tool_run` | Read | A tool answer that was still running: running, failed with why, or done with its rows and sources. |
+
+### The 48 tools
+
+| Kind | Tools |
+| --- | --- |
+| Patents and IP | Claim elements · Patents like mine · Patents near my products · FTO screen · New filings near me · Patent status check · Patent whitespace · Rival patents |
+| Regulatory route | Product code finder · Device name finder · Predicate finder · Standards cited · Regulation search · MDR class · 510(k) change test · A company's devices, every register · What launching everywhere takes · US pathway · Where it's registered · Post-market duties · Filing checklist by market |
+| Safety | Adverse events · Recalls in a code · Hazards in a code |
+| Clinical evidence | Device trials · Question map · Evidence for a claim · Trial landscape · CROs and trial sites · Endpoints in use |
+| Market, payment and buyers | IVF labs · What patients say · How Medicare pays · Open tenders · Who wins tenders · Who distributes in my market · Who does the procedure · Clinicians a company pays · Your lists |
+| Competitors | Claims rivals can make · Who sells in my code · Rivals before revenue · Rival financials · Who owns it |
+| Funding | Who's investing in my space · Is this fund still investing · Money without equity · Who to meet on a trip |
 
 ## Workflows and watches
 
@@ -77,6 +100,7 @@ Every answer starts with `[read dr_…]`, the id to cite and to keep a finding f
 - *What does Commercializer hold about our company?*
 - *What clearances and recalls does our closest competitor hold, register by register?*
 - *Which US pathway fits our device, and which predicates would we lean on?*
+- *Which public tenders are open for our device in France and Germany, and who usually wins them?*
 - *Compare our regulatory footprint with our two closest competitors and keep what matters.*
 - *Which trials are recruiting for our indication in Europe, and who sponsors them?*
 - *Run a market entry workflow for Germany and the UK on our lead product.*

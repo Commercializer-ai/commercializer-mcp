@@ -50,11 +50,12 @@ an API key when you need one.
 ## The plugin
 
 This repository is also a plugin: the server, a skill that teaches the assistant how to work the workspace (read before
-stating a figure, cite every read, keep findings, run workflows), and four skills you can call by name.
+stating a figure, cite every read, keep findings, use the tools, run workflows), and five skills you can call by name.
 
 | Skill | What it does |
 | --- | --- |
 | `ask` | Hands a question to Commercializer's agent; the answer comes back with every record cited. |
+| `tool` | Answers one question with a tool, every row with its sources. |
 | `run` | Starts a workflow on your company and follows it, answering each checkpoint with you. |
 | `workspace` | Your company and its competitors, what is kept, the watches running, the workflows your plan runs. |
 | `setup` | Connects and checks it works. |
@@ -83,6 +84,8 @@ It is also listed in the [MCP Registry](https://registry.modelcontextprotocol.io
   `trials_find`, `recalls_find`, `document_search`, `document_get`. Every answer starts with a read id you can cite.
 - **Know your company:** `search`, `fetch`, `list_profiles`, `get_profile`, `recall_findings`, `keep_finding`,
   `forget_finding`.
+- **Answer one question with a tool:** `list_tools`, `run_tool`, `get_tool_run`; 48 tools, from a US pathway and an FTO
+  screen to open tenders, a trial landscape and who is investing in your space.
 - **Run workflows and watches:** `list_workflows`, `start_workflow`, `get_workflow_run`, `answer_checkpoint` and more;
   31 workflows across regulatory, commercial, evidence, innovation, capital and programme work.
 - **Ask the agent:** `ask_agent`, `get_agent_answer`.

@@ -1,6 +1,6 @@
 ---
 name: commercializer
-description: How to work a Commercializer workspace through its tools — read the governed registers before stating any figure, cite every read, keep findings, run workflows and watches, and hand hard questions to the agent. Use whenever the Commercializer tools are available and the person asks about a medical device or life-science company, its regulatory path, safety record, clinical evidence, patents, payment, buyers, tenders, competitors or money.
+description: How to work a Commercializer workspace through its tools — read the governed registers before stating any figure, cite every read, keep findings, answer one question with a tool, run workflows and watches, and hand hard questions to the agent. Use whenever the Commercializer tools are available and the person asks about a medical device or life-science company, its regulatory path, safety record, clinical evidence, patents, payment, buyers, tenders, competitors or money.
 ---
 
 # Commercializer
@@ -20,13 +20,17 @@ company's profile.
    runs) and the registry companies by a name; `fetch` reads one result in full.
 4. **Keep what is worth knowing next time** with `keep_finding`: one line, naming the reads that show it. A finding
    without a source is refused. `forget_finding` drops one that no longer holds, with the reason. Never keep a guess.
-5. **Deliverables are workflows.** For a structured answer use `list_workflows`, then `start_workflow`; follow it with
+5. **One question with a ready answer is a tool.** A US pathway, open tenders, who wins tenders, an FTO screen, a trial
+   landscape, how Medicare pays: `list_tools` shows the 48 with their inputs filled from the profile; `run_tool` answers
+   one in a minute or two (read it with `get_tool_run` if it is still running). Give its rows with their sources and
+   offer the workflow its `next` names.
+6. **Deliverables are workflows.** For a structured answer use `list_workflows`, then `start_workflow`; follow it with
    `get_workflow_run`, and when a step waits, show the person its question and choices and send their choice with
    `answer_checkpoint`. `start_watch` keeps a deliverable current. Runs and watches count against the workspace's plan;
    `list_workflows` says which ones it runs.
-6. **Hand a question that needs many reads woven together to the agent** with `ask_agent`; if it is still working, read
+7. **Hand a question that needs many reads woven together to the agent** with `ask_agent`; if it is still working, read
    it with `get_agent_answer`.
-7. **Write for the person.** Name records in English ("510(k) decisions", "recalls", "registered trials"), never a
+8. **Write for the person.** Name records in English ("510(k) decisions", "recalls", "registered trials"), never a
    dataset id or a table. Say how sure a reading is when the tool says so.
 
 ## Which tool for what
@@ -44,6 +48,7 @@ company's profile.
 | Passages from authorised documents | `document_search`, `document_get` |
 | The rest of a long answer | `result_page`, with the `continuation.next_cursor` it gave |
 | Memory of the company | `recall_findings`, `keep_finding`, `forget_finding` |
+| One question, answered | `list_tools`, `run_tool`, `get_tool_run` |
 | Deliverables | `list_workflows`, `start_workflow`, `get_workflow_run`, `get_workflow_step`, `answer_checkpoint`, `note_workflow_run`, `stop_workflow_step` |
 | Standing deliverables | `list_watches`, `start_watch`, `stop_watch` |
 | The agent | `ask_agent`, `get_agent_answer` |

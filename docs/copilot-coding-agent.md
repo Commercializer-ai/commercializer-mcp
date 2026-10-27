@@ -28,8 +28,8 @@ a browser to sign in, so it uses a Commercializer API key kept as a repository s
       "tools": [
         "search", "fetch", "list_profiles", "get_profile", "resolve", "company_footprint", "company_profile",
         "device_trace", "graph_compare", "lookup", "trials_find", "recalls_find", "document_search", "document_get",
-        "result_page", "recall_findings", "list_workflows", "get_workflow_run", "get_workflow_step", "list_watches",
-        "get_agent_answer"
+        "result_page", "recall_findings", "list_tools", "get_tool_run", "list_workflows", "get_workflow_run",
+        "get_workflow_step", "list_watches", "get_agent_answer"
       ]
     }
   }
@@ -39,7 +39,7 @@ a browser to sign in, so it uses a Commercializer API key kept as a repository s
 3. **Save MCP configuration.**
 
 The list allows only the tools that read. To let the agent keep findings or start workflows, add `keep_finding`,
-`start_workflow` or `ask_agent`, or use `"tools": ["*"]`.
+`run_tool`, `start_workflow` or `ask_agent`, or use `"tools": ["*"]`.
 
 ## Check it works
 

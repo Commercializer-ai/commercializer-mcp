@@ -3,7 +3,7 @@
   "name": "ai.commercializer/commercializer",
   "title": "Commercializer",
   "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "websiteUrl": "https://commercializer.ai/product/assistant",
   "repository": {
     "url": "https://github.com/Commercializer-ai/commercializer-mcp",

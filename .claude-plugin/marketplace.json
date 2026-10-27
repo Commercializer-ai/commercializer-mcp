@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
-    "version": "1.1.1"
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "commercializer",
       "source": "./",
       "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "author": {
         "name": "Commercializer",
         "email": "hello@commercializer.ai",

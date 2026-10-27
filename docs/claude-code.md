@@ -1,6 +1,6 @@
 # Commercializer in Claude Code
 
-Install the Commercializer plugin: the server, a skill that teaches Claude how to work your workspace, and four skills
+Install the Commercializer plugin: the server, a skill that teaches Claude how to work your workspace, and five skills
 you call by name. Or add just the server.
 
 ## Before you start
@@ -47,6 +47,7 @@ lays out your company, what is kept, the watches and the workflows your plan run
 | You type | It does |
 | --- | --- |
 | `/commercializer:ask <question>` | Hands the question to Commercializer's agent and returns its cited answer. |
+| `/commercializer:tool <question>` | Answers it with one of the 48 tools, every row with its sources. |
 | `/commercializer:run <workflow>` | Starts a workflow and walks each checkpoint with you. |
 | `/commercializer:workspace` | Where your workspace stands. |
 | `/commercializer:setup` | Connects and checks it works. |

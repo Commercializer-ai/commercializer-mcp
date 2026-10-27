@@ -33,8 +33,8 @@ The activity map shows `get_profile` running and the agent answers with your com
 
 - Describe in the agent's **Instructions** when to use it: *For anything about our company, competitors, regulatory
   pathways or the registers, use Commercializer and cite every read.*
-- Leave write tools (`keep_finding`, `start_workflow`, `answer_checkpoint`) on only if the agent should change things in
-  Commercializer; Copilot Studio can ask the user before each one.
+- Leave write tools (`keep_finding`, `run_tool`, `start_workflow`, `answer_checkpoint`) on only if the agent should change
+  things in Commercializer; Copilot Studio can ask the user before each one.
 - **Publish** to Teams and Microsoft 365 Copilot; each user is asked to sign in to Commercializer the first time.
 
 ## With an API key instead
