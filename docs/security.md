@@ -15,7 +15,8 @@
 - **What it did:** every register read it made (kept so a finding can cite it), every finding it kept and every run it
   started, each marked with its name. These show on the **MCP** page and on the profiles.
 - **Credentials:** only a hash of each token and key. An access token lasts an hour; a refresh token thirty days and is
-  replaced each time it is used. An API key lasts until revoked.
+  replaced each time it is used. An API key lasts until revoked, and opens the MCP server alone: the app's own routes
+  refuse it.
 - Commercializer does not receive your conversation with the assistant: only the tool calls it makes, with their
   arguments.
 

@@ -51,7 +51,7 @@ their company up on commercializer.ai.
 ## API keys
 
 An API key lets a script, a CI job, the Copilot coding agent or any client that cannot open a browser use Commercializer
-as you, in one workspace. It works on the MCP server and on the app's own API.
+as you, in one workspace. It works on the MCP server, and nowhere else.
 
 ### Make a key
 
@@ -112,16 +112,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
-### Use it on the app's API
-
-The same key signs requests to the routes the Commercializer app calls, as you, with no browser session:
-
-```sh
-curl https://commercializer.ai/api/profiles -H "Authorization: Bearer $COMMERCIALIZER_KEY"
-```
-
-These routes are the app's own and may change with it; for anything you build to last, use the MCP server's tools.
 
 ### In each client
 
