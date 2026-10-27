@@ -1,0 +1,307 @@
+# Commercializer MCP
+
+> Commercial strategy for medical device and life-science companies, read from the governed registers. Connect an AI assistant to a person's Commercializer workspace at https://commercializer.ai/mcp.
+
+- MCP server: https://commercializer.ai/mcp
+- The plugin, its skills and a guide for every assistant: https://github.com/Commercializer-ai/commercializer-mcp
+- This guide: https://commercializer.ai/mcp/llms.txt
+- The page: https://commercializer.ai/product/assistant
+- Connected assistants and API keys: https://commercializer.ai/assistants (the MCP page of the person's workspace)
+
+This page is written for an AI assistant. If a person gave you this, connect yourself to their Commercializer
+workspace, or, where you cannot change your own configuration, give them the exact steps for the client you run in.
+
+## The server
+
+- **URL:** `https://commercializer.ai/mcp`, MCP over Streamable HTTP (`POST`, JSON-RPC, JSON answers; no event stream,
+  no session; `GET` answers 405).
+- **Sign-in:** OAuth 2.1 with PKCE (S256). An unauthenticated request answers 401 with
+  `WWW-Authenticate: Bearer resource_metadata="https://commercializer.ai/.well-known/oauth-protected-resource"`; from there
+  the authorization server metadata is `https://commercializer.ai/.well-known/oauth-authorization-server`. Register with
+  dynamic client registration (`POST https://commercializer.ai/oauth/register`) or present a client ID metadata document
+  (an `https` client ID). Public client, no secret. Scope `commercializer` (`offline_access` accepted). Redirects may be
+  `https`, loopback `http` on any port, or an app scheme. The person signs in on commercializer.ai, chooses the workspace
+  you reach and presses Allow. Access tokens last an hour; refresh tokens thirty days and rotate on use.
+- **Or an API key:** where you cannot open a browser, the person makes a key on the **MCP** page of their workspace on
+  commercializer.ai and you send it on every request as `Authorization: Bearer czk_…`.
+
+## By client
+
+| You run in | What to do |
+| --- | --- |
+| Claude Code | `claude mcp add --transport http commercializer https://commercializer.ai/mcp`, then the person runs `/mcp` and authenticates. Or the plugin: `/plugin marketplace add Commercializer-ai/commercializer-mcp` and `/plugin install commercializer@commercializer`. |
+| Claude (claude.ai, desktop) | The person adds it: Customize → Connectors → Add → Add custom connector, URL above, then Connect. |
+| ChatGPT | The person adds it: Plugins → Add → Add custom MCP server, URL above, authentication OAuth, then Connect. |
+| Codex | `codex mcp add commercializer --url https://commercializer.ai/mcp` then `codex mcp login commercializer`. |
+| Cursor | Add `{"mcpServers": {"commercializer": {"url": "https://commercializer.ai/mcp"}}}` to `~/.cursor/mcp.json`, then sign in (Tools & MCP → Needs login, or `cursor-agent mcp login commercializer`). |
+| GitHub Copilot (VS Code) | Add `{"servers": {"commercializer": {"type": "http", "url": "https://commercializer.ai/mcp"}}}` to `mcp.json`, or `code --add-mcp '{"name":"commercializer","type":"http","url":"https://commercializer.ai/mcp"}'`; VS Code signs in when a tool first runs. |
+| Copilot CLI | `copilot plugin marketplace add Commercializer-ai/commercializer-mcp` then `copilot plugin install commercializer@commercializer`, or `copilot mcp add --transport http commercializer https://commercializer.ai/mcp`. |
+| Copilot coding agent | An API key as the repository secret `COPILOT_MCP_COMMERCIALIZER_KEY`, and in Settings → Copilot → MCP servers: `{"mcpServers": {"commercializer": {"type": "http", "url": "https://commercializer.ai/mcp", "headers": {"Authorization": "Bearer $COPILOT_MCP_COMMERCIALIZER_KEY"}, "tools": ["*"]}}}`. |
+| Microsoft Copilot Studio | Tools → Add a tool → New tool → Model Context Protocol, URL above, OAuth 2.0 → Dynamic discovery. |
+| Antigravity | `{"mcpServers": {"commercializer": {"serverUrl": "https://commercializer.ai/mcp"}}}` in `~/.gemini/config/mcp_config.json` (the key is `serverUrl`). |
+| A client that runs only local servers | `npx -y mcp-remote@latest https://commercializer.ai/mcp` as the server command. |
+| Your own code | The MCP SDK's Streamable HTTP client with the API key header; or JSON-RPC by hand, `{"jsonrpc":"2.0","id":1,"method":"tools/list"}`. |
+
+## Check it works
+
+Call `get_profile`. It returns the person's company as they described it and the findings kept about it. Greet them with
+the company's name. If it answers that the workspace has no primary profile, call `list_profiles` and tell them to set
+their company up on commercializer.ai.
+
+## API keys
+
+An API key lets a script, a CI job, the Copilot coding agent or any client that cannot open a browser use Commercializer
+as you, in one workspace. It works on the MCP server and on the app's own API.
+
+### Make a key
+
+1. On [commercializer.ai](https://commercializer.ai), open the **MCP** page of the workspace the key should reach.
+2. **Connect an assistant**, choose the client (or **A script or your own code**), then **An API key**.
+3. Name it for where it will live (`CI`, `Build server`), **Continue**, and copy it. It starts `czk_` and is **shown
+   once**; only its last four characters are kept to tell keys apart.
+
+A key signs as the person who made it, in the workspace it was made in, with that person's role. A viewer cannot make
+one.
+
+### Use it on the MCP server
+
+Send it as a bearer token on every request:
+
+```sh
+curl https://commercializer.ai/mcp \
+  -H "Authorization: Bearer $COMMERCIALIZER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
+A tool call:
+
+```sh
+curl https://commercializer.ai/mcp \
+  -H "Authorization: Bearer $COMMERCIALIZER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"recalls_find","arguments":{"initiated_from":"2026-01-01"}}}'
+```
+
+With the official MCP SDKs. In TypeScript, after `npm i @modelcontextprotocol/sdk`:
+
+```ts
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
+
+const client = new Client({ name: 'my-script', version: '1.0.0' });
+await client.connect(new StreamableHTTPClientTransport(new URL('https://commercializer.ai/mcp'), {
+  requestInit: { headers: { Authorization: `Bearer ${process.env.COMMERCIALIZER_KEY}` } },
+}));
+const profile = await client.callTool({ name: 'get_profile', arguments: {} });
+```
+
+In Python, after `pip install mcp`:
+
+```python
+import asyncio, os
+from mcp import ClientSession
+from mcp.client.streamable_http import streamablehttp_client
+
+async def main():
+    headers = {"Authorization": f"Bearer {os.environ['COMMERCIALIZER_KEY']}"}
+    async with streamablehttp_client("https://commercializer.ai/mcp", headers=headers) as (read, write, _):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            print(await session.call_tool("get_profile", {}))
+
+asyncio.run(main())
+```
+
+### Use it on the app's API
+
+The same key signs requests to the routes the Commercializer app calls, as you, with no browser session:
+
+```sh
+curl https://commercializer.ai/api/profiles -H "Authorization: Bearer $COMMERCIALIZER_KEY"
+```
+
+These routes are the app's own and may change with it; for anything you build to last, use the MCP server's tools.
+
+### In each client
+
+| Client | Where the key goes |
+| --- | --- |
+| Claude Code | `claude mcp add --transport http commercializer https://commercializer.ai/mcp --header "Authorization: Bearer …"` |
+| VS Code / Copilot | `headers` in `mcp.json`, from a `promptString` input ([guide](github-copilot.md#with-an-api-key-instead)) |
+| Copilot coding agent | a `COPILOT_MCP_` secret ([guide](copilot-coding-agent.md)) |
+| Cursor | `headers` in `mcp.json` with `${env:…}` |
+| Codex | `bearer_token_env_var` in `config.toml` |
+| Antigravity | `headers` beside `serverUrl` |
+| Copilot Studio | Authentication: API key, header `Authorization`, value `Bearer …` |
+
+### Keep it safe
+
+- Treat it as a password: keep it in a secret store or an environment variable, never in a repository.
+- One key per place, so revoking one does not stop the others.
+- Its reads, findings and runs are marked with its name on the **MCP** page; check what it did there.
+- **Revoke** it on the **MCP** page; it stops at once. A key also stops if its maker leaves the workspace.
+
+## How to work
+
+The Commercializer server is the person's workspace on commercializer.ai: one primary company (their own) and the
+competitors it tracks, each a profile. Every tool runs as the person, through the same functions the app uses, so what you
+read, keep and start lands where they see it, marked with your name. The server's instructions already carry the primary
+company's profile.
+
+### Rules
+
+1. **Read before you state a figure.** Every register answer starts with `[read dr_…]`; cite that id beside the figure.
+   Where the registers hold no answer, say so. Never invent a record, a clearance, a tender, a price or a date.
+2. **Resolve names first.** `resolve` with `kind: company` turns a company name into its canonical UUID; pass that UUID
+   to `company_footprint`, `graph_compare`, `lookup`, `recalls_find` and `trials_find` instead of free text.
+3. **Look before you read again.** `search` finds what the workspace already holds (profiles, kept findings, workflow
+   runs) and the registry companies by a name; `fetch` reads one result in full.
+4. **Keep what is worth knowing next time** with `keep_finding`: one line, naming the reads that show it. A finding
+   without a source is refused. `forget_finding` drops one that no longer holds, with the reason. Never keep a guess.
+5. **Deliverables are workflows.** For a structured answer use `list_workflows`, then `start_workflow`; follow it with
+   `get_workflow_run`, and when a step waits, show the person its question and choices and send their choice with
+   `answer_checkpoint`. `start_watch` keeps a deliverable current. Runs and watches count against the workspace's plan;
+   `list_workflows` says which ones it runs.
+6. **Hand a question that needs many reads woven together to the agent** with `ask_agent`; if it is still working, read
+   it with `get_agent_answer`.
+7. **Write for the person.** Name records in English ("510(k) decisions", "recalls", "registered trials"), never a
+   dataset id or a table. Say how sure a reading is when the tool says so.
+
+### Which tool for what
+
+| Need | Tool |
+| --- | --- |
+| What the workspace holds, by a word | `search`, then `fetch` |
+| The companies in the workspace | `list_profiles`, `get_profile` |
+| A name → canonical identity; a code or term | `resolve`, `lookup` |
+| One company across clearances, registrations, safety and trials | `company_footprint` |
+| A listed company's financials, filings and insiders | `company_profile` (ticker or CIK) |
+| A device's predicates and its chain | `device_trace` (brand, product code or K/DEN/PMA number) |
+| Two to five companies side by side | `graph_compare` |
+| Registered trials; recalls | `trials_find`, `recalls_find` |
+| Passages from authorised documents | `document_search`, `document_get` |
+| The rest of a long answer | `result_page`, with the `continuation.next_cursor` it gave |
+| Memory of the company | `recall_findings`, `keep_finding`, `forget_finding` |
+| Deliverables | `list_workflows`, `start_workflow`, `get_workflow_run`, `get_workflow_step`, `answer_checkpoint`, `note_workflow_run`, `stop_workflow_step` |
+| Standing deliverables | `list_watches`, `start_watch`, `stop_watch` |
+| The agent | `ask_agent`, `get_agent_answer` |
+
+### The workflows, by pack
+
+- **Regulatory:** pathway-decision, submission-checklist, evidence-bar, clinical-tier, launch-readiness,
+  change-assessment, portfolio-upkeep, postmarket-obligations, lifecycle-map, safety-burden, signal-watch,
+  competitor-footprint, similar-patents.
+- **Commercial:** market-entry, go-to-market, market-whitespace, provider-targeting, kol-map, tender-watch,
+  patent-whitespace.
+- **Evidence:** clinical-evidence, trial-map.
+- **Innovation:** need-finding, need-sizing, value-proposition.
+- **Capital:** raise-plan, competitor-financials, deal-screen, ownership-watch.
+- **Programme:** company-analysis (a decision brief from six modules), company-brief (a sourced deck in six acts).
+
+`list_workflows` returns each with its deliverable, steps, the inputs already filled from the profile, and whether the
+plan runs it; one marked `readsProduct` starts from one of the profile's products and refuses with none.
+
+### A typical turn
+
+```
+get_profile                               who we work for, what is kept
+resolve kind=company text="Shockwave"     → the canonical UUID
+company_footprint company=<uuid>          → [read dr_…] clearances, registrations, recalls, trials
+recalls_find firm=[<uuid>]                → [read dr_…]
+keep_finding text="…" sources=[dr_…]      one line, cited
+```
+
+Answer in the person's words with the reads cited, and offer the workflow that would take it further.
+
+## The tools
+
+Every tool runs as you, in the workspace you approved. **Reads** change nothing. **Writes** add something (a finding, a
+run, a watch, a question to the agent). **Removes** stop or drop something. Each tool tells your assistant which it is,
+so the assistant can ask you first.
+
+### Your workspace
+
+| Tool | Kind | What it does |
+| --- | --- | --- |
+| `search` | Read | Finds what a query names in the workspace (profiles, kept findings, workflow runs) and the registry companies by that name. |
+| `fetch` | Read | One `search` result in full: a profile, a kept finding with its sources, a run with its step headlines, or a registry company's footprint (a cited register read). |
+| `list_profiles` | Read | Your company, the competitors it tracks, and your own profiles. |
+| `get_profile` | Read | A company as you described it and the findings kept about it, with their sources and age. |
+
+### The registers
+
+Every answer starts with `[read dr_…]`, the id to cite and to keep a finding from.
+
+| Tool | Kind | What it reads |
+| --- | --- | --- |
+| `resolve` | Read | What a name refers to: a company's canonical identity (with its family), a device, a condition, a drug, a reaction, a specialty, a place or a time. |
+| `company_footprint` | Read | One company across authorisations, registrations, safety and trials. |
+| `company_profile` | Read | A listed company's identity, three years of financials, recent filings and insider trades. |
+| `device_trace` | Read | A device by brand, product code or K/DEN/PMA number, and its predicate chain. |
+| `graph_compare` | Read | A company against up to four others: shared product codes, review panels, paid clinicians, trials. |
+| `lookup` | Read | From one thing to another along the built links: a company's rivals, its product codes, the clinicians it pays, the trials it runs. |
+| `trials_find` | Read | Registered trials by condition, intervention, sponsor, status, phase, dates and sites. |
+| `recalls_find` | Read | FDA device recalls with their 510(k) and PMA numbers. |
+| `document_search` | Read | Passages from authorised document collections. |
+| `document_get` | Read | A citable passage in full. |
+| `result_page` | Read | The rest of a long answer, from the cursor it gave. |
+
+### What is kept
+
+| Tool | Kind | What it does |
+| --- | --- | --- |
+| `recall_findings` | Read | The findings kept about a company that bear on a query; a finding the registers have revised since is marked stale. |
+| `keep_finding` | Write | Keeps one finding in one line, citing the reads that show it; shown on the profile with your assistant's name. |
+| `forget_finding` | Remove | Drops a kept finding that no longer holds, with the reason; the record of it stays. |
+
+### Workflows and watches
+
+| Tool | Kind | What it does |
+| --- | --- | --- |
+| `list_workflows` | Read | The workflows you can run on a profile, with what each delivers, its steps, its inputs filled from the profile and whether your plan runs it. |
+| `start_workflow` | Write | Starts one; counts against your plan. |
+| `get_workflow_run` | Read | A run's state, each step's headline, and the question when a step waits. |
+| `get_workflow_step` | Read | One saved step in full, with its sources. |
+| `answer_checkpoint` | Write | Answers a step's question with your choice; changing an answer runs only the steps it affects. |
+| `note_workflow_run` | Write | A note the run reads at its next question. |
+| `stop_workflow_step` | Remove | Ends the running step with what it has. |
+| `list_watches` | Read | Workflows set to run again, with their last run. |
+| `start_watch` | Write | Runs a workflow again every day, week or month. |
+| `stop_watch` | Remove | Stops a watch; its runs stay. |
+
+#### The 31 workflows
+
+| Pack | Workflows |
+| --- | --- |
+| Regulatory | Pathway decision · Submission checklist · Evidence bar · Clinical tier · Launch readiness · Change assessment · Portfolio and registration upkeep · Post-market obligations · Global lifecycle map · Safety burden · Signal watch · Competitor regulatory footprint · Similar patents |
+| Commercial | Market entry · Go-to-market brief · Market whitespace · Provider targeting · Clinician and KOL map · Tender and bid watch · Patent whitespace |
+| Evidence | Clinical evidence mapper · Trial map |
+| Innovation | Need finding · Need sizing · Value proposition |
+| Capital | Raise plan · Competitor financial watch · Acquisition and partner screen · Ownership watch |
+| Programme | Company analysis · Company brief |
+
+### The agent
+
+| Tool | Kind | What it does |
+| --- | --- | --- |
+| `ask_agent` | Write | Asks Commercializer's own agent; it reads, keeps what it finds and answers within a minute or two. |
+| `get_agent_answer` | Read | The answer, once it is done. |
+
+### Prompts to start from
+
+- *What does Commercializer hold about our company?*
+- *What clearances and recalls does our closest competitor hold, register by register?*
+- *Which US pathway fits our device, and which predicates would we lean on?*
+- *Compare our regulatory footprint with our two closest competitors and keep what matters.*
+- *Which trials are recruiting for our indication in Europe, and who sponsors them?*
+- *Run a market entry workflow for Germany and the UK on our lead product.*
+- *Set a weekly signal watch on our product code.*
+
+## More
+
+- [Every client, step by step](https://github.com/Commercializer-ai/commercializer-mcp#connect-your-assistant)
+- [API keys](https://github.com/Commercializer-ai/commercializer-mcp/blob/main/docs/api-keys.md)
+- [Security and data](https://github.com/Commercializer-ai/commercializer-mcp/blob/main/docs/security.md)
+- [Troubleshooting](https://github.com/Commercializer-ai/commercializer-mcp/blob/main/docs/troubleshooting.md)
+- Support: https://commercializer.ai/contact · hello@commercializer.ai

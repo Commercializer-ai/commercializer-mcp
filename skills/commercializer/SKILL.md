@@ -29,7 +29,7 @@ company's profile.
 7. **Write for the person.** Name records in English ("510(k) decisions", "recalls", "registered trials"), never a
    dataset id or a table. Say how sure a reading is when the tool says so.
 
-## The tools
+## Which tool for what
 
 | Need | Tool |
 | --- | --- |

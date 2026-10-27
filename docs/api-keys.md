@@ -33,10 +33,9 @@ curl https://commercializer.ai/mcp \
   -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"recalls_find","arguments":{"initiated_from":"2026-01-01"}}}'
 ```
 
-With the official MCP SDKs:
+With the official MCP SDKs. In TypeScript, after `npm i @modelcontextprotocol/sdk`:
 
 ```ts
-// TypeScript: npm i @modelcontextprotocol/sdk
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 
@@ -47,8 +46,9 @@ await client.connect(new StreamableHTTPClientTransport(new URL('https://commerci
 const profile = await client.callTool({ name: 'get_profile', arguments: {} });
 ```
 
+In Python, after `pip install mcp`:
+
 ```python
-# Python: pip install mcp
 import asyncio, os
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client

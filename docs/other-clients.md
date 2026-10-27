@@ -1,6 +1,7 @@
 # Commercializer in other MCP clients
 
-Any client that speaks the Model Context Protocol over Streamable HTTP connects to
+Give your assistant [`https://commercializer.ai/mcp/llms.txt`](https://commercializer.ai/mcp/llms.txt) and it can work out
+the rest itself. Any client that speaks the Model Context Protocol over Streamable HTTP connects to
 `https://commercializer.ai/mcp` and signs in with OAuth 2.1: it finds the sign-in through the server's metadata,
 registers itself (or brings a client metadata document) and opens commercializer.ai for you to approve. A client that
 cannot sign in uses an API key in the `Authorization` header.

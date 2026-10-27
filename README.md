@@ -21,7 +21,11 @@ submission checklist, a market entry plan, a competitor footprint or a company b
 Everything it does happens as you, in the workspace you choose, and is listed on the **MCP** page of your workspace under
 its name, where you can disconnect it at any time.
 
-**The server:** `https://commercializer.ai/mcp` (Streamable HTTP; sign in with OAuth 2.1, or use an API key).
+- **The server:** `https://commercializer.ai/mcp` (Streamable HTTP; sign in with OAuth 2.1, or use an API key).
+- **This repository:** [`github.com/Commercializer-ai/commercializer-mcp`](https://github.com/Commercializer-ai/commercializer-mcp), the plugin and a guide for every assistant.
+- **The page:** [commercializer.ai/product/assistant](https://commercializer.ai/product/assistant).
+- **Let the assistant set itself up:** give it [`https://commercializer.ai/mcp/llms.txt`](https://commercializer.ai/mcp/llms.txt). It says how to connect from
+  each client, how to sign in, how to work the workspace and every tool.
 
 ## Connect your assistant
 
@@ -33,11 +37,12 @@ its name, where you can disconnect it at any time.
 | **GitHub Copilot** (VS Code, Copilot CLI, JetBrains, Visual Studio) | [Add to VS Code](https://vscode.dev/redirect/mcp/install?name=commercializer&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fcommercializer.ai%2Fmcp%22%7D) or `copilot plugin marketplace add Commercializer-ai/commercializer-mcp` | [GitHub Copilot](docs/github-copilot.md) |
 | **Copilot coding agent** (on github.com) | Repository settings → Copilot → MCP servers, with an API key | [Copilot coding agent](docs/copilot-coding-agent.md) |
 | **Microsoft Copilot Studio** (agents for Microsoft 365 Copilot and Teams) | Tools → Add a tool → Model Context Protocol, OAuth dynamic discovery | [Copilot Studio](docs/microsoft-copilot-studio.md) |
-| **Cursor** | [Add to Cursor](https://cursor.com/en/install-mcp?name=commercializer&config=eyJ1cmwiOiJodHRwczovL2NvbW1lcmNpYWxpemVyLmFpL21jcCJ9) | [Cursor](docs/cursor.md) |
+| **Cursor** (editor and CLI) | [Add to Cursor](https://cursor.com/en/install-mcp?name=commercializer&config=eyJ1cmwiOiJodHRwczovL2NvbW1lcmNpYWxpemVyLmFpL21jcCJ9), or `cursor-agent mcp login commercializer` | [Cursor](docs/cursor.md) |
 | **Codex** (CLI, IDE, app) | `codex mcp add commercializer --url https://commercializer.ai/mcp` | [Codex](docs/codex.md) |
 | **Antigravity** (and Gemini CLI) | `serverUrl` in `mcp_config.json` | [Antigravity](docs/antigravity.md) |
 | **Devin Desktop, Windsurf, Kiro, Zed, Goose and others** | the server URL, or `mcp-remote` for a stdio-only client | [Other clients](docs/other-clients.md) |
 | **A script or your own code** | an API key as `Authorization: Bearer` | [API keys](docs/api-keys.md) |
+| **Any assistant, on its own** | give it `https://commercializer.ai/mcp/llms.txt` | [For assistants](docs/agents.md) |
 
 Signed in to Commercializer, the **MCP** page of your workspace walks the same steps for the assistant you pick and makes
 an API key when you need one.
@@ -65,6 +70,7 @@ Copilot CLI      copilot plugin marketplace add Commercializer-ai/commercializer
 VS Code          Command Palette → Chat: Install Plugin From Source → https://github.com/Commercializer-ai/commercializer-mcp
 Codex            codex plugin marketplace add Commercializer-ai/commercializer-mcp
                  codex plugin add commercializer@commercializer
+Cursor           Cursor Settings → Plugins → https://github.com/Commercializer-ai/commercializer-mcp
 ```
 
 It is also listed in the [MCP Registry](https://registry.modelcontextprotocol.io) as `ai.commercializer/commercializer`.
