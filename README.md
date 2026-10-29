@@ -81,7 +81,9 @@ It is also listed in the [MCP Registry](https://registry.modelcontextprotocol.io
 [Every tool](docs/tools.md), with what it reads or changes. In short:
 
 - **Read the registers:** `resolve`, `company_footprint`, `company_profile`, `device_trace`, `graph_compare`, `lookup`,
-  `trials_find`, `recalls_find`, `document_search`, `document_get`. Every answer starts with a read id you can cite.
+  `trials_find`, `recalls_find`, `document_search`, `document_get`, and every other register through `list_registers`
+  and `read_register` (EU, Canada, Australia, China, Japan, Korea, tenders, Medicare, hospitals, patents, filings).
+  Every answer starts with a read id you can cite.
 - **Know your company:** `search`, `fetch`, `list_profiles`, `get_profile`, `recall_findings`, `keep_finding`,
   `forget_finding`.
 - **Answer one question with a tool:** `list_tools`, `run_tool`, `get_tool_run`; 48 tools, from a US pathway and an FTO

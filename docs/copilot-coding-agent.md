@@ -28,7 +28,7 @@ a browser to sign in, so it uses a Commercializer API key kept as a repository s
       "tools": [
         "search", "fetch", "list_profiles", "get_profile", "resolve", "company_footprint", "company_profile",
         "device_trace", "graph_compare", "lookup", "trials_find", "recalls_find", "document_search", "document_get",
-        "result_page", "recall_findings", "list_tools", "get_tool_run", "list_workflows", "get_workflow_run",
+        "result_page", "list_registers", "read_register", "recall_findings", "list_tools", "get_tool_run", "list_workflows", "get_workflow_run",
         "get_workflow_step", "list_watches", "get_agent_answer"
       ]
     }

@@ -1,7 +1,7 @@
 {
   "name": "commercializer",
   "displayName": "Commercializer",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "shortDescription": "Medtech commercial strategy",
   "description": "Commercial strategy for medical device and life-science companies, read from the governed registers.",
   "longDescription": "Commercializer is the commercial strategy workspace for medical device and life-science companies. Connected, your assistant works on your company the way the Commercializer app does: it reads the governed registers (FDA clearances and approvals, EU and other registrations, recalls and adverse event reports, registered trials, patents, payments to clinicians, public tenders and company filings), cites every record it uses, keeps the findings worth remembering on your company's profile, answers one question at a time with 48 tools (a US pathway, open tenders, an FTO screen, a trial landscape), and starts workflows that deliver a pathway decision, a submission checklist, a market entry plan, a competitor footprint or a company brief, asking you at each decision. It is for founders, regulatory, market access and commercial teams, and the consultants who work with them. It reads what the registers hold and says where they hold nothing; it gives no legal or regulatory advice.",

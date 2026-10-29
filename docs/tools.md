@@ -30,6 +30,8 @@ Every answer starts with `[read dr_…]`, the id to cite and to keep a finding f
 | `document_search` | Read | Passages from authorised document collections. |
 | `document_get` | Read | A citable passage in full. |
 | `result_page` | Read | The rest of a long answer, from the cursor it gave. |
+| `list_registers` | Read | Every other register by name: EU registrations, certificates and registered companies; Canadian, Australian and Chinese device registers; Japanese and Korean procedure volumes; public tenders and buyers; Medicare payment rates; hospitals and clinicians; US device listings and adverse event reports; patents, published studies, filings and holders. Asked by name, their input schemas. |
+| `read_register` | Read | Runs one register from `list_registers` with its arguments. |
 
 ## What is kept
 

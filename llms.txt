@@ -145,21 +145,26 @@ company's profile.
    Where the registers hold no answer, say so. Never invent a record, a clearance, a tender, a price or a date.
 2. **Resolve names first.** `resolve` with `kind: company` turns a company name into its canonical UUID; pass that UUID
    to `company_footprint`, `graph_compare`, `lookup`, `recalls_find` and `trials_find` instead of free text.
-3. **Look before you read again.** `search` finds what the workspace already holds (profiles, kept findings, workflow
+3. **Read every market the question names.** The reads listed as tools cover companies, devices, trials and US
+   recalls; `list_registers` names every other register (EU, Canada, Australia, China, Japan, Korea, tenders, Medicare,
+   hospitals) and `read_register` runs one. Never answer for a market from US records alone. When a market reads zero,
+   resolve the company with `family: true` and read again with its relations, or read the register by the local
+   affiliate's name.
+4. **Look before you read again.** `search` finds what the workspace already holds (profiles, kept findings, workflow
    runs) and the registry companies by a name; `fetch` reads one result in full.
-4. **Keep what is worth knowing next time** with `keep_finding`: one line, naming the reads that show it. A finding
+5. **Keep what is worth knowing next time** with `keep_finding`: one line, naming the reads that show it. A finding
    without a source is refused. `forget_finding` drops one that no longer holds, with the reason. Never keep a guess.
-5. **One question with a ready answer is a tool.** A US pathway, open tenders, who wins tenders, an FTO screen, a trial
+6. **One question with a ready answer is a tool.** A US pathway, open tenders, who wins tenders, an FTO screen, a trial
    landscape, how Medicare pays: `list_tools` shows the 48 with their inputs filled from the profile; `run_tool` answers
    one in a minute or two (read it with `get_tool_run` if it is still running). Give its rows with their sources and
    offer the workflow its `next` names.
-6. **Deliverables are workflows.** For a structured answer use `list_workflows`, then `start_workflow`; follow it with
+7. **Deliverables are workflows.** For a structured answer use `list_workflows`, then `start_workflow`; follow it with
    `get_workflow_run`, and when a step waits, show the person its question and choices and send their choice with
    `answer_checkpoint`. `start_watch` keeps a deliverable current. Runs and watches count against the workspace's plan;
    `list_workflows` says which ones it runs.
-7. **Hand a question that needs many reads woven together to the agent** with `ask_agent`; if it is still working, read
+8. **Hand a question that needs many reads woven together to the agent** with `ask_agent`; if it is still working, read
    it with `get_agent_answer`.
-8. **Write for the person.** Name records in English ("510(k) decisions", "recalls", "registered trials"), never a
+9. **Write for the person.** Name records in English ("510(k) decisions", "recalls", "registered trials"), never a
    dataset id or a table. Say how sure a reading is when the tool says so.
 
 ### Which tool for what
@@ -174,6 +179,7 @@ company's profile.
 | A device's predicates and its chain | `device_trace` (brand, product code or K/DEN/PMA number) |
 | Two to five companies side by side | `graph_compare` |
 | Registered trials; recalls | `trials_find`, `recalls_find` |
+| Every other register: EU registrations and certificates, Canada, Australia, China, Japan, Korea, tenders, Medicare rates, hospitals, clinicians, adverse events, patents, studies, filings | `list_registers` (with names, their schemas), then `read_register` |
 | Passages from authorised documents | `document_search`, `document_get` |
 | The rest of a long answer | `result_page`, with the `continuation.next_cursor` it gave |
 | Memory of the company | `recall_findings`, `keep_finding`, `forget_finding` |
@@ -204,6 +210,7 @@ get_profile                               who we work for, what is kept
 resolve kind=company text="Shockwave"     → the canonical UUID
 company_footprint company=<uuid>          → [read dr_…] clearances, registrations, recalls, trials
 recalls_find firm=[<uuid>]                → [read dr_…]
+read_register register=eudamed_devices arguments={manufacturer:[<uuid>]}  → [read dr_…] its EU registrations
 keep_finding text="…" sources=[dr_…]      one line, cited
 ```
 
@@ -241,6 +248,8 @@ Every answer starts with `[read dr_…]`, the id to cite and to keep a finding f
 | `document_search` | Read | Passages from authorised document collections. |
 | `document_get` | Read | A citable passage in full. |
 | `result_page` | Read | The rest of a long answer, from the cursor it gave. |
+| `list_registers` | Read | Every other register by name: EU registrations, certificates and registered companies; Canadian, Australian and Chinese device registers; Japanese and Korean procedure volumes; public tenders and buyers; Medicare payment rates; hospitals and clinicians; US device listings and adverse event reports; patents, published studies, filings and holders. Asked by name, their input schemas. |
+| `read_register` | Read | Runs one register from `list_registers` with its arguments. |
 
 ### What is kept
 
