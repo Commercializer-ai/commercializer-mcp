@@ -89,7 +89,7 @@ It is also listed in the [MCP Registry](https://registry.modelcontextprotocol.io
 - **Answer one question with a tool:** `list_tools`, `run_tool`, `get_tool_run`; 48 tools, from a US pathway and an FTO
   screen to open tenders, a trial landscape and who is investing in your space.
 - **Run workflows and watches:** `list_workflows`, `start_workflow`, `get_workflow_run`, `answer_checkpoint` and more;
-  31 workflows across regulatory, commercial, evidence, innovation, capital and programme work.
+  33 workflows across regulatory, commercial, evidence, innovation, capital and programme work.
 - **Ask the agent:** `ask_agent`, `get_agent_answer`.
 
 Try:

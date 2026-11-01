@@ -57,10 +57,10 @@ One question answered in a minute or two, the same answer as the Tools page on c
 | Kind | Tools |
 | --- | --- |
 | Patents and IP | Claim elements · Patents like mine · Patents near my products · FTO screen · New filings near me · Patent status check · Patent whitespace · Rival patents |
-| Regulatory route | Product code finder · Device name finder · Predicate finder · Standards cited · Regulation search · MDR class · 510(k) change test · A company's devices, every register · What launching everywhere takes · US pathway · Where it's registered · Post-market duties · Filing checklist by market |
+| Regulatory route | Product code finder · Device name finder · Predicate finder · Standards cited · Regulation search · MDR class · 510(k) change test · Company devices, every register · Launching everywhere · US pathway · Registrations by register · Post-market duties · Filing checklist by market |
 | Safety | Adverse events · Recalls in a code · Hazards in a code |
 | Clinical evidence | Device trials · Question map · Evidence for a claim · Trial landscape · CROs and trial sites · Endpoints in use |
-| Market, payment and buyers | IVF labs · What patients say · How Medicare pays · Open tenders · Who wins tenders · Who distributes in my market · Who does the procedure · Clinicians a company pays · Your lists |
+| Market, payment and buyers | IVF labs · Patient voices · Medicare payment · Open tenders · Who wins tenders · Who distributes in my market · Who does the procedure · Clinicians a company pays · Your lists |
 | Competitors | Claims rivals can make · Who sells in my code · Rivals before revenue · Rival financials · Who owns it |
 | Funding | Who's investing in my space · Is this fund still investing · Money without equity · Who to meet on a trip |
 
@@ -79,15 +79,15 @@ One question answered in a minute or two, the same answer as the Tools page on c
 | `start_watch` | Write | Runs a workflow again every day, week or month. |
 | `stop_watch` | Remove | Stops a watch; its runs stay. |
 
-### The 31 workflows
+### The 33 workflows
 
 | Pack | Workflows |
 | --- | --- |
-| Regulatory | Pathway decision · Submission checklist · Evidence bar · Clinical tier · Launch readiness · Change assessment · Portfolio and registration upkeep · Post-market obligations · Global lifecycle map · Safety burden · Signal watch · Competitor regulatory footprint · Similar patents |
-| Commercial | Market entry · Go-to-market brief · Market whitespace · Provider targeting · Clinician and KOL map · Tender and bid watch · Patent whitespace |
+| Regulatory | Competitor regulatory footprint · Technology landscape · Launch readiness · Change assessment · Portfolio and registration upkeep · Signal watch · Pathway decision · Evidence bar · Clinical tier · Submission checklist · Safety burden · Global lifecycle map · Post-market obligations · Similar patents |
 | Evidence | Clinical evidence mapper · Trial map |
-| Innovation | Need finding · Need sizing · Value proposition |
+| Commercial | Patent whitespace · Business model · Market entry · Go-to-market brief · Clinician and KOL map · Market whitespace · Provider targeting · Tender and bid watch |
 | Capital | Raise plan · Competitor financial watch · Acquisition and partner screen · Ownership watch |
+| Innovation | Need finding · Need sizing · Value proposition |
 | Programme | Company analysis · Company brief |
 
 ## The agent

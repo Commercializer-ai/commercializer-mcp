@@ -34,7 +34,7 @@ Claude calls `get_profile` and answers with your company and the findings kept a
 ## Use it
 
 - Ask in plain words; Claude chooses the tools and asks before each one runs. On the connector's page under
-  **Customize → Connectors**, set **Read-only tools** to **Always allow** to stop the questions for the 21 reads.
+  **Customize → Connectors**, set **Read-only tools** to **Always allow** to stop the questions for the 25 reads.
 - In a **Project**, add the instruction *Use Commercializer for anything about our company, competitors or the
   registers; cite every read.* to make it the default.
 - With **Research** on, Claude can run several register reads in one go and write a cited report.

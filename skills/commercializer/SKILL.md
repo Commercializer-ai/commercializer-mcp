@@ -26,7 +26,7 @@ company's profile.
 5. **Keep what is worth knowing next time** with `keep_finding`: one line, naming the reads that show it. A finding
    without a source is refused. `forget_finding` drops one that no longer holds, with the reason. Never keep a guess.
 6. **One question with a ready answer is a tool.** A US pathway, open tenders, who wins tenders, an FTO screen, a trial
-   landscape, how Medicare pays: `list_tools` shows the 48 with their inputs filled from the profile; `run_tool` answers
+   landscape, how Medicare pays: `list_tools` shows the 48 tools with their inputs filled from the profile; `run_tool` answers
    one in a minute or two (read it with `get_tool_run` if it is still running). Give its rows with their sources and
    offer the workflow its `next` names.
 7. **Deliverables are workflows.** For a structured answer use `list_workflows`, then `start_workflow`; follow it with
