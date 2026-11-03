@@ -6,7 +6,8 @@ argument-hint: <question>
 
 Ask Commercializer's agent the person's question with the Commercializer tools.
 
-1. Use the workspace's primary profile unless the person names another (`list_profiles` gives the ids).
+1. Pass the profile the person means (`list_profiles` gives the ids). A workspace with one company takes it when
+   `profile` is left out; one with several refuses the call with their ids, so ask which.
 2. Call `ask_agent` with the question in the person's words. It waits up to 45 seconds; if the answer comes back
    `running`, call `get_agent_answer` with the turn id every 10 seconds until it is `done`.
 3. Give the answer as it came, keeping every `[read …]` citation, with the link to the conversation on commercializer.ai.

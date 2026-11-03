@@ -10,7 +10,7 @@ so the assistant can ask you first.
 | --- | --- | --- |
 | `search` | Read | Finds what a query names in the workspace (profiles, kept findings, workflow runs) and the registry companies by that name. |
 | `fetch` | Read | One `search` result in full: a profile, a kept finding with its sources, a run with its step headlines, or a registry company's footprint (a cited register read). |
-| `list_profiles` | Read | Your company, the competitors it tracks, and your own profiles. |
+| `list_profiles` | Read | The companies your workspace holds, and your own profiles in your other workspaces. |
 | `get_profile` | Read | A company as you described it and the findings kept about it, with their sources and age. |
 
 ## The registers
@@ -52,14 +52,14 @@ One question answered in a minute or two, the same answer as the Tools page on c
 | `run_tool` | Write | Runs one and waits up to 45 seconds for the answer. The same inputs answered today come back at no cost. Draws on your plan's monthly agent use. |
 | `get_tool_run` | Read | A tool answer that was still running: running, failed with why, or done with its rows and sources. |
 
-### The 48 tools
+### The 44 tools
 
 | Kind | Tools |
 | --- | --- |
-| Patents and IP | Claim elements · Patents like mine · Patents near my products · FTO screen · New filings near me · Patent status check · Patent whitespace · Rival patents |
-| Regulatory route | Product code finder · Device name finder · Predicate finder · Standards cited · Regulation search · MDR class · 510(k) change test · Company devices, every register · Launching everywhere · US pathway · Registrations by register · Post-market duties · Filing checklist by market |
+| Patents and IP | Claim elements · Nearest patents · FTO screen · New filings near me · Patent status check · Patent whitespace |
+| Regulatory route | Product code finder · Device name finder · Predicate finder · Standards cited · Regulation search · MDR class · 510(k) change test · Company devices, every register · Launching everywhere · US pathway · Post-market duties · Filing checklist by market |
 | Safety | Adverse events · Recalls in a code · Hazards in a code |
-| Clinical evidence | Device trials · Question map · Evidence for a claim · Trial landscape · CROs and trial sites · Endpoints in use |
+| Clinical evidence | Question map · Evidence for a claim · Trial search · CROs and trial sites · Endpoints in use |
 | Market, payment and buyers | IVF labs · Patient voices · Medicare payment · Open tenders · Who wins tenders · Who distributes in my market · Who does the procedure · Clinicians a company pays · Your lists |
 | Competitors | Claims rivals can make · Who sells in my code · Rivals before revenue · Rival financials · Who owns it |
 | Funding | Who's investing in my space · Is this fund still investing · Money without equity · Who to meet on a trip |
@@ -79,16 +79,16 @@ One question answered in a minute or two, the same answer as the Tools page on c
 | `start_watch` | Write | Runs a workflow again every day, week or month. |
 | `stop_watch` | Remove | Stops a watch; its runs stay. |
 
-### The 33 workflows
+### The 29 workflows
 
 | Pack | Workflows |
 | --- | --- |
-| Regulatory | Competitor regulatory footprint · Technology landscape · Launch readiness · Change assessment · Portfolio and registration upkeep · Signal watch · Pathway decision · Evidence bar · Clinical tier · Submission checklist · Safety burden · Global lifecycle map · Post-market obligations · Similar patents |
+| Regulatory | Competitor regulatory footprint · Technology landscape · Launch readiness · Change assessment · Holdings and duties · Signal watch · Evidence bar · Clinical tier · Submission checklist · Safety burden · Similar patents |
 | Evidence | Clinical evidence mapper · Trial map |
-| Commercial | Patent whitespace · Business model · Market entry · Go-to-market brief · Clinician and KOL map · Market whitespace · Provider targeting · Tender and bid watch |
+| Commercial | Patent whitespace · Business model · Market entry · Market case · Clinician and KOL map · Market whitespace · Provider targeting · Tender and bid watch |
 | Capital | Raise plan · Competitor financial watch · Acquisition and partner screen · Ownership watch |
 | Innovation | Need finding · Need sizing · Value proposition |
-| Programme | Company analysis · Company brief |
+| Programme | Company analysis |
 
 ## The agent
 

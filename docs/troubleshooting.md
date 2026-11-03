@@ -24,7 +24,8 @@
 
 | What you see | Why | What to do |
 | --- | --- | --- |
-| "This org has no primary profile yet" | no company is set up in the workspace | set your company up on commercializer.ai, or name a profile from `list_profiles` |
+| "This workspace has no company yet" | no company is set up in the workspace | set your company up on commercializer.ai, or name a profile from `list_profiles` |
+| "This workspace holds 3 companies: pass `profile`" | the call named no company and the workspace holds several | pass one of the ids it lists |
 | a workflow is "not in the plan" | your plan does not run it | `list_workflows` names the plan that does |
 | a workflow "refuses to start" | it reads a product and the profile has none | add a product on the profile's plan pages |
 | `keep_finding` is refused | the finding names no source, or a read this workspace cannot see | cite the `[read dr_…]` ids the reads returned |

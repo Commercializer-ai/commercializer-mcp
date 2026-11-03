@@ -37,5 +37,6 @@ workspace, or, where you cannot change your own configuration, give them the exa
 ## Check it works
 
 Call `get_profile`. It returns the person's company as they described it and the findings kept about it. Greet them with
-the company's name. If it answers that the workspace has no primary profile, call `list_profiles` and tell them to set
+the company's name. If the workspace holds several companies, it answers with their ids: ask which one, and pass it as
+`profile` from then on. If it answers that the workspace has no company yet, call `list_profiles` and tell them to set
 their company up on commercializer.ai.

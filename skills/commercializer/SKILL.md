@@ -5,10 +5,11 @@ description: How to work a Commercializer workspace through its tools — read t
 
 # Commercializer
 
-The Commercializer server is the person's workspace on commercializer.ai: one primary company (their own) and the
-competitors it tracks, each a profile. Every tool runs as the person, through the same functions the app uses, so what you
-read, keep and start lands where they see it, marked with your name. The server's instructions already carry the primary
-company's profile.
+The Commercializer server is the person's workspace on commercializer.ai: the companies it holds, as many as its plan
+covers, each a profile with the competitors it tracks. Every tool runs as the person, through the same functions the app
+uses, so what you read, keep and start lands where they see it, marked with your name. The server's instructions carry
+the company's profile when the workspace holds one, and each company's id when it holds several: then pass `profile`
+to every tool that takes one.
 
 ## Rules
 
@@ -26,7 +27,7 @@ company's profile.
 5. **Keep what is worth knowing next time** with `keep_finding`: one line, naming the reads that show it. A finding
    without a source is refused. `forget_finding` drops one that no longer holds, with the reason. Never keep a guess.
 6. **One question with a ready answer is a tool.** A US pathway, open tenders, who wins tenders, an FTO screen, a trial
-   landscape, how Medicare pays: `list_tools` shows the 48 tools with their inputs filled from the profile; `run_tool` answers
+   landscape, how Medicare pays: `list_tools` shows the 44 tools with their inputs filled from the profile; `run_tool` answers
    one in a minute or two (read it with `get_tool_run` if it is still running). Give its rows with their sources and
    offer the workflow its `next` names.
 7. **Deliverables are workflows.** For a structured answer use `list_workflows`, then `start_workflow`; follow it with

@@ -6,7 +6,7 @@ argument-hint: <workflow or what you need>
 
 Run a Commercializer workflow for the person with the Commercializer tools.
 
-1. Call `list_workflows` for the profile (the primary when none is named). Match what they asked to one workflow by its
+1. Call `list_workflows` for the profile (the workspace's one company when none is named; with several, name one). Match what they asked to one workflow by its
    id, name or deliverable; if two fit, show both in one line each and ask which.
 2. If it is not in the plan (`inPlan: false`), say which plan runs it and stop.
 3. If it is marked `readsProduct` and the profile has no products, say to add one on the profile's plan pages in

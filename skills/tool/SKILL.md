@@ -6,7 +6,7 @@ argument-hint: <question or tool>
 
 Answer the person's question with one Commercializer tool.
 
-1. Call `list_tools` for the profile (the primary when none is named). Match the question to one tool by its name or what
+1. Call `list_tools` for the profile (the workspace's one company when none is named; with several, name one). Match the question to one tool by its name or what
    it answers; if two fit, show both in one line each and ask which.
 2. Show the inputs it marks `filled` from the profile; ask only for the empty ones that are not optional, or the ones the
    person wants to change. An input with `options` takes their exact words.

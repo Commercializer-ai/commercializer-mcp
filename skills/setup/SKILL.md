@@ -11,7 +11,8 @@ Help the person connect Commercializer.
    commercializer.ai opens: they sign in, choose the workspace it reaches and press Allow.
 2. With no account yet, they start one at https://commercializer.ai; every plan begins with a trial.
 3. Once connected, call `get_profile` and greet them with their company's name and one line of what is kept about it.
-   With no primary profile yet, call `list_profiles` and say they can set their company up on commercializer.ai.
+   A workspace holding several companies answers with their ids: greet them with those names and ask which to work on.
+   With no company yet, call `list_profiles` and say they can set their company up on commercializer.ai.
 4. If a tool answers that the workspace's plan does not run something, name the plan that does.
 
 A client that cannot open a browser (a script, a CI job, the GitHub Copilot coding agent) uses an API key instead: made

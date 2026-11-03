@@ -47,7 +47,7 @@ lays out your company, what is kept, the watches and the workflows your plan run
 | You type | It does |
 | --- | --- |
 | `/commercializer:ask <question>` | Hands the question to Commercializer's agent and returns its cited answer. |
-| `/commercializer:tool <question>` | Answers it with one of the 48 tools, every row with its sources. |
+| `/commercializer:tool <question>` | Answers it with one of the 44 tools, every row with its sources. |
 | `/commercializer:run <workflow>` | Starts a workflow and walks each checkpoint with you. |
 | `/commercializer:workspace` | Where your workspace stands. |
 | `/commercializer:setup` | Connects and checks it works. |

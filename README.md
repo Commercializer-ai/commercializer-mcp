@@ -86,10 +86,10 @@ It is also listed in the [MCP Registry](https://registry.modelcontextprotocol.io
   Every answer starts with a read id you can cite.
 - **Know your company:** `search`, `fetch`, `list_profiles`, `get_profile`, `recall_findings`, `keep_finding`,
   `forget_finding`.
-- **Answer one question with a tool:** `list_tools`, `run_tool`, `get_tool_run`; 48 tools, from a US pathway and an FTO
+- **Answer one question with a tool:** `list_tools`, `run_tool`, `get_tool_run`; 44 tools, from a US pathway and an FTO
   screen to open tenders, a trial landscape and who is investing in your space.
 - **Run workflows and watches:** `list_workflows`, `start_workflow`, `get_workflow_run`, `answer_checkpoint` and more;
-  33 workflows across regulatory, commercial, evidence, innovation, capital and programme work.
+  29 workflows across regulatory, commercial, evidence, innovation, capital and programme work.
 - **Ask the agent:** `ask_agent`, `get_agent_answer`.
 
 Try:
